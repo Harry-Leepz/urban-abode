@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
 import MobileMenu from "./mobile-menu";
 import ProfileMenu from "./profile-menu";
+import DesktopMenu from "./desktop-menu";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,28 +62,7 @@ export default function Navbar() {
               </span>
             </Link>
             {/* <!-- Desktop Menu Hidden below md screens --> */}
-            <div className='hidden md:ml-6 md:block'>
-              <div className='flex space-x-2'>
-                <Link
-                  href='/'
-                  className='text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
-                >
-                  Home
-                </Link>
-                <Link
-                  href='/properties'
-                  className='text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
-                >
-                  Properties
-                </Link>
-                <Link
-                  href='/properties/add'
-                  className='text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
-                >
-                  Add Property
-                </Link>
-              </div>
-            </div>
+            <DesktopMenu />
           </div>
 
           {/* <!-- Right Side Menu (Logged Out) --> */}
