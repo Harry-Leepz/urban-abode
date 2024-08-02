@@ -1,16 +1,23 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { FaGoogle } from "react-icons/fa";
+import MobileMenu from "./mobile-menu";
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  console.log(isMobileMenuOpen);
   return (
-    <nav className='bg-blue-700 border-b border-blue-500'>
+    <nav className='bg-slate-900 border-b border-slate-500'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div className='relative flex h-20 items-center justify-between'>
           <div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
             {/* <!-- Mobile menu button--> */}
             <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               type='button'
               id='mobile-dropdown-button'
               className='relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
@@ -48,7 +55,7 @@ export default function Navbar() {
               />
 
               <span className='hidden md:block text-white text-2xl font-bold ml-2'>
-                PropertyPulse
+                Urban Abode
               </span>
             </Link>
             {/* <!-- Desktop Menu Hidden below md screens --> */}
@@ -179,32 +186,7 @@ export default function Navbar() {
       </div>
 
       {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-      <div className='hidden' id='mobile-menu'>
-        <div className='space-y-1 px-2 pb-3 pt-2'>
-          <Link
-            href='/'
-            className='bg-black text-white block rounded-md px-3 py-2 text-base font-medium'
-          >
-            Home
-          </Link>
-          <Link
-            href='/properties'
-            className='text-white block rounded-md px-3 py-2 text-base font-medium'
-          >
-            Properties
-          </Link>
-          <Link
-            href='/properties/add'
-            className='text-white block rounded-md px-3 py-2 text-base font-medium'
-          >
-            Add Property
-          </Link>
-          <button className='flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-5'>
-            <i className='fa-brands fa-google mr-2'></i>
-            <span>Login or Register</span>
-          </button>
-        </div>
-      </div>
+      {isMobileMenuOpen && <MobileMenu />}
     </nav>
   );
 }
