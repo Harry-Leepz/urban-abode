@@ -1,39 +1,67 @@
-import React from "react";
+import Link from "next/link";
+
+const infoBoxeData = [
+  {
+    title: "For Renters",
+    description:
+      "Find your dream rental property. Bookmark properties and contact owners.",
+    linkLabel: "Browse Properties",
+    backgroundColor: "bg-gray-100",
+    textColor: "text-slate-900",
+    href: "/properties",
+  },
+  {
+    title: "For Property Owners",
+    description:
+      "List your properties and reach potential tenants. Rent as an airbnb or long term.",
+    linkLabel: "Add Property",
+    backgroundColor: "bg-blue-100",
+    textColor: "text-slate-900",
+    href: "/add-property",
+  },
+];
 
 export default function InfoBoxes() {
   return (
-    // <!-- Renters and Owners -->
     <section>
       <div className='container-xl lg:container m-auto'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg'>
-          <div className='bg-gray-100 p-6 rounded-lg shadow-md'>
-            <h2 className='text-2xl font-bold'>For Renters</h2>
-            <p className='mt-2 mb-4'>
-              Find your dream rental property. Bookmark properties and contact
-              owners.
-            </p>
-            <a
-              href='/properties.html'
-              className='inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700'
-            >
-              Browse Properties
-            </a>
-          </div>
-          <div className='bg-blue-100 p-6 rounded-lg shadow-md'>
-            <h2 className='text-2xl font-bold'>For Property Owners</h2>
-            <p className='mt-2 mb-4'>
-              List your properties and reach potential tenants. Rent as an
-              airbnb or long term.
-            </p>
-            <a
-              href='/add-property.html'
-              className='inline-block bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600'
-            >
-              Add Property
-            </a>
-          </div>
+          {infoBoxeData.map((infoBox, index) => (
+            <InfoBox key={index} {...infoBox} />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+type InfoBoxProps = {
+  title: string;
+  description: string;
+  linkLabel: string;
+  backgroundColor: string;
+  textColor: string;
+  href: string;
+};
+
+function InfoBox({
+  title,
+  description,
+  linkLabel,
+  backgroundColor,
+  textColor,
+  href,
+}: InfoBoxProps) {
+  return (
+    <div className={`${backgroundColor} ${textColor} p-6 rounded-lg shadow-md`}>
+      <h2 className='text-2xl font-bold'>{title}</h2>
+      <p className='mt-2 mb-4'>{description}</p>
+      <Link
+        href={href}
+        className='inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700'
+      >
+        {linkLabel}
+      </Link>
+    </div>
   );
 }
