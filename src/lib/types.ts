@@ -27,6 +27,7 @@ export interface Location {
 export interface Rates {
   weekly?: number;
   monthly?: number;
+  nightly?: number;
 }
 
 export interface SellerInfo {
