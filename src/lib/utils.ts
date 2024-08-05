@@ -6,10 +6,10 @@ import { Rates } from "./types";
 */
 export function checkPaymentRates(rates: Rates) {
   if (rates.monthly) {
-    return `£${rates.monthly.toLocaleString} / mo`;
+    return `$${rates.monthly.toLocaleString()} / mo`;
   } else if (rates.weekly) {
-    return `£${rates.weekly.toLocaleString} / wk`;
+    return `$${rates.weekly.toLocaleString()} / wk`;
   } else if (rates.nightly) {
-    return `£${rates.nightly.toLocaleString} / night`;
+    return `$${rates.nightly.toLocaleString()} / night`;
   }
 }
