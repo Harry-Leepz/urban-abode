@@ -26,7 +26,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         sizes={"100vh"}
         className='w-full h-auto rounded-t-xl'
       />
-      <div className='p-4'>
+      <div className='p-4 bg-slate-50 rounded-lg'>
         <div className='text-left md:text-center lg:text-left mb-6'>
           <div className='text-gray-600'>{property.type}</div>
           <h3 className='text-xl font-bold'>{property.name}</h3>
