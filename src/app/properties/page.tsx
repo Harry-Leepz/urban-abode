@@ -1,5 +1,6 @@
 import PropertyCard from "@/components/properties/property-card";
-import properties from "./data/properties.json";
+import properties from "@/data/properties.json";
+
 export default function Properties() {
   return (
     <section className='px-4 py-6'>
