@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function NotFOund() {
+export default function NotFound() {
   return (
     <section className='bg-slate-100 min-h-screen flex-grow'>
       <div className='container m-auto max-w-2xl py-24'>
