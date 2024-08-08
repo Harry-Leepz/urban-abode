@@ -1,7 +1,13 @@
 import PropertyCard from "@/components/properties/property-card";
-import properties from "@/data/properties.json";
 
-export default function Properties() {
+import connectDb from "../../../config/database";
+import Property from "../../../models/Property";
+import { TProperty } from "@/lib/types";
+
+export default async function Properties() {
+  await connectDb();
+  const properties: TProperty[] = await Property.find({}).lean();
+
   return (
     <section className='px-4 py-6'>
       <div className='container-xl lg:container m-auto px-4 py-6'>
