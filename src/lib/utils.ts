@@ -1,10 +1,10 @@
-import { Rates } from "./types";
+import { TRates } from "./types";
 
 /*
   Take the rates object and check which payments exists
   and returns the appropriate string to show on the UI
 */
-export function checkPaymentRates(rates: Rates) {
+export function checkPaymentRates(rates: TRates) {
   if (rates.monthly) {
     return `$${rates.monthly.toLocaleString()} / mo`;
   } else if (rates.weekly) {
