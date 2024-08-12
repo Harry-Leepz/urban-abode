@@ -9,10 +9,10 @@ import {
 } from "react-icons/fa";
 
 import { checkPaymentRates } from "@/lib/utils";
-import { Property } from "@/lib/types";
+import { TProperty } from "@/lib/types";
 
 type PropertyCardProps = {
-  property: Property;
+  property: TProperty;
 };
 
 export default function PropertyCard({ property }: PropertyCardProps) {
