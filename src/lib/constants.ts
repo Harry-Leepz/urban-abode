@@ -10,6 +10,9 @@ export const navLinks = [
     href: "/properties",
     text: "Properties",
   },
+];
+
+export const navLinksLoggedIn = [
   {
     href: "/properties/add",
     text: "Add Property",
