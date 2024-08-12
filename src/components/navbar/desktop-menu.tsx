@@ -3,13 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { navLinks } from "@/lib/constants";
+import { navLinks, navLinksLoggedIn } from "@/lib/constants";
 import { MenuItem } from "./types";
 
 const menuItemStyles =
   "text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium";
 
-export default function DesktopMenu() {
+type DesktopMenuProps = {
+  session: any;
+};
+
+export default function DesktopMenu({ session }: DesktopMenuProps) {
   const pathname = usePathname();
 
   return (
@@ -18,6 +22,13 @@ export default function DesktopMenu() {
         {navLinks.map((link, index) => (
           <DesktopMenuItem key={index} link={link} pathname={pathname} />
         ))}
+        {session && (
+          <>
+            {navLinksLoggedIn.map((link, index) => (
+              <DesktopMenuItem key={index} link={link} pathname={pathname} />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );
