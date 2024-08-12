@@ -1,6 +1,11 @@
+"use client";
 import Link from "next/link";
 
-export default function ProfileMenu() {
+type ProfileMenuProps = {
+  onClick: () => void;
+};
+
+export default function ProfileMenu({ onClick }: ProfileMenuProps) {
   return (
     <div
       id='user-menu'
@@ -29,6 +34,7 @@ export default function ProfileMenu() {
         Saved Properties
       </Link>
       <button
+        onClick={() => onClick()}
         className='block px-4 py-2 text-sm text-gray-700'
         role='menuitem'
         tabIndex={-1}
