@@ -17,7 +17,7 @@ const infoBoxeData = [
     linkLabel: "Add Property",
     backgroundColor: "bg-blue-100",
     textColor: "text-slate-900",
-    href: "/add-property",
+    href: "/properties/add",
   },
 ];
 
